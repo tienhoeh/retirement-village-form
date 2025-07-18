@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Due-diligence questionnaire for venture capital assessment of a China retirement village & hospital project." />
+  <title>Retirement Village VC Due-Diligence Form</title>
+  <style>
+    :root {
+      --primary: #1c4587;
+      --secondary: #4875c7;
+      --accent: #60a5fa;
+      --bg: #f5f7fa;
+      --text: #333;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: "Helvetica Neue", Arial, sans-serif; background: var(--bg); color: var(--text); }
+    h1, h2 { color: var(--primary); margin: 0 0 0.5em 0; }
+    h1 { font-size: 2.25rem; text-align: center; padding-top: 1rem; }
+    .container { max-width: 960px; margin: 1.5rem auto 3rem; background: #fff; padding: 2rem 2.5rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); }
+    fieldset { border: none; padding: 0; margin: 0; }
+    legend { font-size: 1.25rem; font-weight: 600; margin: 2.5rem 0 1rem; color: var(--secondary); }
+    .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+    label { display: block; font-size: 0.9rem; margin-bottom: 0.25rem; }
+    input, select, textarea { width: 100%; padding: 0.55rem 0.75rem; border: 1px solid #ccc; border-radius: 4px; font-size: 0.9rem; }
+    textarea { min-height: 120px; resize: vertical; }
+    .full { grid-column: 1 / -1; }
+    .file-input { padding: 0.55rem 0; }
+    .subnote { font-size:0.85rem;color:#666; }
+    table.fin-input { width:100%; border-collapse: collapse; font-size:0.9rem; margin-top:0.5rem; }
+    .fin-input th, .fin-input td { border:1px solid #ccc; padding:0.4rem; text-align:center; }
+    .fin-input th { background:#f0f2f7; color:var(--primary); font-weight:600; }
+    .optional-tag { font-size:0.8rem; font-weight:400; color:#888; margin-left:0.25rem; }
+    .inline-checks { display:flex; gap:1.5rem; align-items:center; flex-wrap:wrap; padding:0.35rem 0; }
+    .inline-checks label { display:inline-flex; align-items:center; gap:0.35rem; margin:0; font-weight:400; font-size:0.9rem; }
+    .inline-checks input[type="checkbox"] { width:auto; height:auto; }
+    .submit-btn { display: inline-block; margin-top: 2rem; background: var(--primary); color: #fff; padding: 0.75rem 1.5rem; font-size: 1rem; border: none; border-radius: 4px; cursor: pointer; transition: background 0.2s ease; }
+    .submit-btn:hover { background: var(--secondary); }
+    @media (max-width: 480px) {
+      h1 { font-size: 1.75rem; }
+      .fin-input th, .fin-input td { font-size:0.8rem; padding:0.3rem; }
+      .inline-checks { gap:1rem; }
+    }
+  </style>
+</head>
+<body>
+  <h1>Retirement Village Investment Questionnaire</h1>
+  <div class="container">
+    <!-- Netlify Forms enabled: name, data-netlify, honeypot, hidden form-name input. -->
+    <form name="retirement-village-intake" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
+      <!-- Required hidden input so Netlify can map submissions -->
+      <input type="hidden" name="form-name" value="retirement-village-intake" />
+      <!-- Honeypot (spam trap) -->
+      <div style="position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden;">
+        <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+      </div>
+
+      <!-- 1. Project Overview -->
+      <fieldset>
+        <legend>1. Project Overview</legend>
+        <div class="grid">
+          <div>
+            <label for="projectName">Project Name</label>
+            <input type="text" id="projectName" name="projectName" required />
+          </div>
+          <div>
+            <label for="entityName">Legal Entity Name</label>
+            <input type="text" id="entityName" name="entityName" />
+          </div>
+          <div>
+            <label for="location">Location (Province & City)</label>
+            <input type="text" id="location" name="location" />
+          </div>
+          <div>
+            <label for="yearEstablished">Year Established</label>
+            <input type="number" id="yearEstablished" name="yearEstablished" min="1900" max="2100" />
+          </div>
+          <div class="full">
+            <label for="description">Brief Project Description</label>
+            <textarea id="description" name="description"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 2. Property & Assets -->
+      <fieldset>
+        <legend>2. Property &amp; Assets</legend>
+        <div class="grid">
+          <div>
+            <label for="assetValuation">Latest Asset Valuation (RMB)</label>
+            <input type="number" id="assetValuation" name="assetValuation" placeholder="1250000000" step="1000000" />
+          </div>
+          <div>
+            <label for="landTenure">Land Tenure</label>
+            <select id="landTenure" name="landTenure">
+              <option value="">-- Select --</option>
+              <option>Freehold</option>
+              <option>Leasehold &lt; 40 yrs</option>
+              <option>Leasehold ≥ 40 yrs</option>
+            </select>
+          </div>
+          <div>
+            <label for="leaseExpiry">If Leasehold, Lease Expiry (YYYY-MM)</label>
+            <input type="month" id="leaseExpiry" name="leaseExpiry" />
+          </div>
+          <div>
+            <label for="collateral">Collateral Available</label>
+            <select id="collateral" name="collateral">
+              <option value="">-- Select --</option>
+              <option>Yes (Unencumbered)</option>
+              <option>Yes (Encumbered)</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="assetNotes">Additional Notes / Recent Appraisal Details</label>
+            <textarea id="assetNotes" name="assetNotes" placeholder="Describe valuation firm, appraisal date, assumptions, liens, etc."></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 3. Market & Demand -->
+      <fieldset>
+        <legend>3. Market &amp; Demand</legend>
+        <div class="grid">
+          <div>
+            <label for="targetDemo">Target Demographic (Age, Income Tier)</label>
+            <input type="text" id="targetDemo" name="targetDemo" />
+          </div>
+          <div>
+            <label for="localSeniorPop">Local Population (65+) 5-km Radius</label>
+            <input type="number" id="localSeniorPop" name="localSeniorPop" />
+          </div>
+          <div>
+            <label for="occRate">Current Average Occupancy Rate (%)</label>
+            <input type="number" id="occRate" name="occRate" min="0" max="100" step="0.1" />
+          </div>
+          <div class="full">
+            <label for="competition">Competitive Landscape Summary</label>
+            <textarea id="competition" name="competition" placeholder="Nearest competing facilities, capacity, pricing, quality ratings"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 4. Operations & Capacity -->
+      <fieldset>
+        <legend>4. Operations &amp; Capacity</legend>
+        <div class="grid">
+          <div>
+            <label for="villaCount">Number of Villas</label>
+            <input type="number" id="villaCount" name="villaCount" value="69" />
+          </div>
+          <div>
+            <label for="bedsPerVilla">Beds per Villa</label>
+            <input type="number" id="bedsPerVilla" name="bedsPerVilla" value="15" />
+          </div>
+          <div>
+            <label for="hospitalBeds">Hospital Beds</label>
+            <input type="number" id="hospitalBeds" name="hospitalBeds" value="300" />
+          </div>
+          <div>
+            <label for="currentResidents">Current Residents</label>
+            <input type="number" id="currentResidents" name="currentResidents" />
+          </div>
+          <div>
+            <label for="avgLOSCare">Average Length of Stay (days)</label>
+            <input type="number" id="avgLOSCare" name="avgLOSCare" />
+          </div>
+          <div>
+            <label for="staffRatio">Staff-to-Resident Ratio</label>
+            <input type="text" id="staffRatio" name="staffRatio" placeholder="e.g. 1:6" />
+          </div>
+          <div class="full">
+            <label for="services">Care &amp; Ancillary Services Offered</label>
+            <textarea id="services" name="services" placeholder="E.g. Memory care, rehab, TCM, catering, physiotherapy"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 5. Financials -->
+      <fieldset>
+        <legend>5. Financials</legend>
+        <p class="subnote full">Enter RMB amounts (no commas). Projections are relative to current fiscal year (2025) unless you choose calendar years below.</p>
+
+        <!-- Reporting Basis -->
+        <div class="grid">
+          <div>
+            <label for="reportingBasis">Reporting Basis</label>
+            <select id="reportingBasis" name="reportingBasis">
+              <option value="fiscal">Fiscal Year (Default 2025 current)</option>
+              <option value="calendar">Calendar Year</option>
+            </select>
+          </div>
+          <div>
+            <label for="currencyNote">Reporting Currency</label>
+            <select id="currencyNote" name="currencyNote">
+              <option value="RMB" selected>RMB</option>
+              <option value="USD">USD</option>
+              <option value="Other">Other (specify in notes)</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="finNotes">Financial Reporting Notes</label>
+            <textarea id="finNotes" name="finNotes" placeholder="Audit status, consolidation scope, accounting standards (PRC GAAP / IFRS), exchange rate assumptions"></textarea>
+          </div>
+        </div>
+
+        <!-- Historical & Projected Financial Table -->
+        <table class="fin-input" aria-describedby="financial-yearly-metrics">
+          <thead>
+            <tr>
+              <th scope="col">Period</th>
+              <th scope="col">Revenue (RMB)</th>
+              <th scope="col">EBITDA (RMB)</th>
+              <th scope="col">Net Income (RMB)</th>
+              <th scope="col">Avg Occ %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><label for="rev2022">2022</label></th>
+              <td><input type="number" id="rev2022" name="rev2022" step="10000" /></td>
+              <td><input type="number" id="ebitda2022" name="ebitda2022" step="10000" /></td>
+              <td><input type="number" id="ni2022" name="ni2022" step="10000" /></td>
+              <td><input type="number" id="occ2022" name="occ2022" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev2023">2023</label></th>
+              <td><input type="number" id="rev2023" name="rev2023" step="10000" /></td>
+              <td><input type="number" id="ebitda2023" name="ebitda2023" step="10000" /></td>
+              <td><input type="number" id="ni2023" name="ni2023" step="10000" /></td>
+              <td><input type="number" id="occ2023" name="occ2023" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev2024">2024</label></th>
+              <td><input type="number" id="rev2024" name="rev2024" step="10000" /></td>
+              <td><input type="number" id="ebitda2024" name="ebitda2024" step="10000" /></td>
+              <td><input type="number" id="ni2024" name="ni2024" step="10000" /></td>
+              <td><input type="number" id="occ2024" name="occ2024" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev1y">+1Y</label></th>
+              <td><input type="number" id="rev1y" name="rev1y" step="10000" /></td>
+              <td><input type="number" id="ebitda1y" name="ebitda1y" step="10000" /></td>
+              <td><input type="number" id="ni1y" name="ni1y" step="10000" /></td>
+              <td><input type="number" id="occ1y" name="occ1y" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev2y">+2Y</label></th>
+              <td><input type="number" id="rev2y" name="rev2y" step="10000" /></td>
+              <td><input type="number" id="ebitda2y" name="ebitda2y" step="10000" /></td>
+              <td><input type="number" id="ni2y" name="ni2y" step="10000" /></td>
+              <td><input type="number" id="occ2y" name="occ2y" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev3y">+3Y</label></th>
+              <td><input type="number" id="rev3y" name="rev3y" step="10000" /></td>
+              <td><input type="number" id="ebitda3y" name="ebitda3y" step="10000" /></td>
+              <td><input type="number" id="ni3y" name="ni3y" step="10000" /></td>
+              <td><input type="number" id="occ3y" name="occ3y" min="0" max="100" step="0.1" /></td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="rev5y">+5Y</label></th>
+              <td><input type="number" id="rev5y" name="rev5y" step="10000" /></td>
+              <td><input type="number" id="ebitda5y" name="ebitda5y" step="10000" /></td>
+              <td><input type="number" id="ni5y" name="ni5y" step="10000" /></td>
+              <td><input type="number" id="occ5y" name="occ5y" min="0" max="100" step="0.1" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </fieldset>
+
+      <div class="grid" style="margin-top:1.5rem;">
+        <div>
+          <label for="projIRR">Projected IRR (%)</label>
+          <input type="number" id="projIRR" name="projIRR" min="0" max="100" step="0.1" />
+        </div>
+        <div>
+          <label for="paybackPeriod">Payback Period (yrs)</label>
+          <input type="number" id="paybackPeriod" name="paybackPeriod" min="0" step="0.1" />
+        </div>
+        <div>
+          <label for="capex">Upcoming CAPEX (RMB)</label>
+          <input type="number" id="capex" name="capex" placeholder="200000000" step="1000000" />
+        </div>
+      </div>
+
+      <!-- 6. Funding Requirements -->
+      <fieldset>
+        <legend>6. Funding Requirements</legend>
+        <div class="grid">
+          <div class="full">
+            <label>Funding Type (check all that apply)</label>
+            <div class="inline-checks">
+              <label><input type="checkbox" id="fundTypeEquity" name="fundTypeEquity" value="Equity" /> Equity</label>
+              <label><input type="checkbox" id="fundTypeLoan" name="fundTypeLoan" value="Loan" /> Loan</label>
+            </div>
+          </div>
+          <div>
+            <label for="fundAmount">Funding Amount Requested (RMB)</label>
+            <input type="number" id="fundAmount" name="fundAmount" value="200000000" step="1000000" />
+          </div>
+          <div>
+            <label for="equityOffered">Equity Offered (%)</label>
+            <input type="number" id="equityOffered" name="equityOffered" min="0" max="100" step="0.1" />
+          </div>
+          <div>
+            <label for="useOfFunds">Use of Funds</label>
+            <textarea id="useOfFunds" name="useOfFunds" placeholder="E.g. Renovation 60%, Working Capital 30%, Contingency 10%"></textarea>
+          </div>
+          <div>
+            <label for="securityOffered">Security / Collateral Offered</label>
+            <textarea id="securityOffered" name="securityOffered" placeholder="Detail which assets (1 Building, 69 Villas) are pledged; valuation; seniority"></textarea>
+          </div>
+          <div>
+            <label for="proposedTerms">Proposed Financing Terms</label>
+            <textarea id="proposedTerms" name="proposedTerms" placeholder="Tenor, interest rate, repayment profile, covenants"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 7. Management & Governance -->
+      <fieldset>
+        <legend>7. Management &amp; Governance</legend>
+        <div class="grid">
+          <div class="full">
+            <label for="team">Key Management Team &amp; Experience</label>
+            <textarea id="team" name="team" placeholder="CEO, COO, Medical Director, Head of Nursing, Facilities Ops"></textarea>
+          </div>
+          <div class="full">
+            <label for="trackRecord">Operator Track Record (Facilities managed, outcomes)</label>
+            <textarea id="trackRecord" name="trackRecord"></textarea>
+          </div>
+          <div class="full">
+            <label for="kpi">Key Operational KPIs Monitored</label>
+            <textarea id="kpi" name="kpi" placeholder="Occupancy, care acuity mix, falls, readmission rate, ALOS, staff turnover"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 8. Regulatory & Compliance -->
+      <fieldset>
+        <legend>8. Regulatory &amp; Compliance</legend>
+        <div class="grid">
+          <div>
+            <label for="licenses">All Licenses Obtained?</label>
+            <select id="licenses" name="licenses">
+              <option value="">-- Select --</option>
+              <option>Yes</option>
+              <option>Pending</option>
+              <option>No</option>
+            </select>
+          </div>
+          <div>
+            <label for="govSupport">Local Government Incentives / Subsidies</label>
+            <input type="text" id="govSupport" name="govSupport" />
+          </div>
+          <div>
+            <label for="litigation">Any Ongoing Litigation?</label>
+            <select id="litigation" name="litigation">
+              <option value="">-- Select --</option>
+              <option>No</option>
+              <option>Yes (details below)</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="complianceNotes">Additional Compliance Notes</label>
+            <textarea id="complianceNotes" name="complianceNotes" placeholder="Health bureau inspections, fire safety sign-offs, land-use approvals"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 9. Risk & ESG -->
+      <fieldset>
+        <legend>9. Risk &amp; ESG</legend>
+        <div class="grid">
+          <div class="full">
+            <label for="keyRisks">Key Risks Identified &amp; Mitigation</label>
+            <textarea id="keyRisks" name="keyRisks" placeholder="Demand risk, regulatory change, staffing shortages, cost overruns"></textarea>
+          </div>
+          <div class="full">
+            <label for="esg">ESG Initiatives / Certifications <span class="optional-tag">(Optional)</span></label>
+            <textarea id="esg" name="esg" placeholder="Energy efficiency upgrades, senior wellbeing programs, community integration, green building certs"></textarea>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- 10. Exit & Returns -->
+      <fieldset>
+        <legend>10. Exit &amp; Returns</legend>
+        <div class="grid">
+          <div>
+            <label for="exitYear">Target Exit Year</label>
+            <input type="number" id="exitYear" name="exitYear" min="2025" />
+          </div>
+          <div>
+            <label for="exitValuation">Expected Exit Valuation (RMB)</label>
+            <input type="number" id="exitValuation" name="exitValuation" step="1000000" />
+          </div>
+          <div>
+            <label for="exitStrategy">Exit Strategy</label>
+            <select id="exitStrategy" name="exitStrategy">
+              <option value="">-- Select --</option>
+              <option>Trade Sale</option>
+              <option>IPO / REIT</option>
+              <option>Buy-back</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <!-- Equity Offered moved to Section 6 per user request -->
+        </div>
+      </fieldset>
+
+      <!-- 11. Supporting Documents (disabled for MVP; uncomment to re-enable Netlify file uploads)
+      <fieldset>
+        <legend>11. Supporting Documents</legend>
+        <div class="grid">
+          <div class="file-input full">
+            <label for="docs">Upload Supporting Docs (.zip/.pdf/.docx/.xlsx)</label>
+            <input type="file" id="docs" name="docs" multiple accept=".zip,.pdf,.doc,.docx,.xls,.xlsx" />
+          </div>
+        </div>
+      </fieldset> -->
+
+      <button type="submit" class="submit-btn">Submit Information</button>
+    </form>
+  </div>
+</body>
+</html>
