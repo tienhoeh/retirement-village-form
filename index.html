@@ -46,11 +46,11 @@
 <body>
   <h1>Retirement Village Investment Questionnaire</h1>
   <div class="container">
-    <!-- Netlify Forms enabled: name, data-netlify, honeypot, hidden form-name input. -->
-    <form name="retirement-village-intake" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" action="/thank-you">
-      <!-- Required hidden input so Netlify can map submissions -->
+    <!-- Netlify Forms -->
+    <!-- Removed action attr to avoid /thank-you 404; Netlify default success page will display. -->
+    <form name="retirement-village-intake" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="retirement-village-intake" />
-      <!-- Honeypot (spam trap) -->
+      <!-- Honeypot -->
       <div style="position:absolute;left:-5000px;top:auto;width:1px;height:1px;overflow:hidden;">
         <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
       </div>
@@ -88,7 +88,7 @@
         <div class="grid">
           <div>
             <label for="assetValuation">Latest Asset Valuation (RMB)</label>
-            <input type="number" id="assetValuation" name="assetValuation" placeholder="1250000000" step="1000000" />
+            <input type="number" id="assetValuation" name="assetValuation" placeholder="1250000000" step="any" />
           </div>
           <div>
             <label for="landTenure">Land Tenure</label>
@@ -129,11 +129,11 @@
           </div>
           <div>
             <label for="localSeniorPop">Local Population (65+) 5-km Radius</label>
-            <input type="number" id="localSeniorPop" name="localSeniorPop" />
+            <input type="number" id="localSeniorPop" name="localSeniorPop" step="any" />
           </div>
           <div>
             <label for="occRate">Current Average Occupancy Rate (%)</label>
-            <input type="number" id="occRate" name="occRate" min="0" max="100" step="0.1" />
+            <input type="number" id="occRate" name="occRate" step="any" />
           </div>
           <div class="full">
             <label for="competition">Competitive Landscape Summary</label>
@@ -148,23 +148,23 @@
         <div class="grid">
           <div>
             <label for="villaCount">Number of Villas</label>
-            <input type="number" id="villaCount" name="villaCount" value="69" />
+            <input type="number" id="villaCount" name="villaCount" value="69" step="any" />
           </div>
           <div>
             <label for="bedsPerVilla">Beds per Villa</label>
-            <input type="number" id="bedsPerVilla" name="bedsPerVilla" value="15" />
+            <input type="number" id="bedsPerVilla" name="bedsPerVilla" value="15" step="any" />
           </div>
           <div>
             <label for="hospitalBeds">Hospital Beds</label>
-            <input type="number" id="hospitalBeds" name="hospitalBeds" value="300" />
+            <input type="number" id="hospitalBeds" name="hospitalBeds" value="300" step="any" />
           </div>
           <div>
             <label for="currentResidents">Current Residents</label>
-            <input type="number" id="currentResidents" name="currentResidents" />
+            <input type="number" id="currentResidents" name="currentResidents" step="any" />
           </div>
           <div>
             <label for="avgLOSCare">Average Length of Stay (days)</label>
-            <input type="number" id="avgLOSCare" name="avgLOSCare" />
+            <input type="number" id="avgLOSCare" name="avgLOSCare" step="any" />
           </div>
           <div>
             <label for="staffRatio">Staff-to-Resident Ratio</label>
@@ -182,7 +182,6 @@
         <legend>5. Financials</legend>
         <p class="subnote full">Enter RMB amounts (no commas). Projections are relative to current fiscal year (2025) unless you choose calendar years below.</p>
 
-        <!-- Reporting Basis -->
         <div class="grid">
           <div>
             <label for="reportingBasis">Reporting Basis</label>
@@ -205,7 +204,6 @@
           </div>
         </div>
 
-        <!-- Historical & Projected Financial Table -->
         <table class="fin-input" aria-describedby="financial-yearly-metrics">
           <thead>
             <tr>
@@ -219,52 +217,52 @@
           <tbody>
             <tr>
               <th scope="row"><label for="rev2022">2022</label></th>
-              <td><input type="number" id="rev2022" name="rev2022" step="10000" /></td>
-              <td><input type="number" id="ebitda2022" name="ebitda2022" step="10000" /></td>
-              <td><input type="number" id="ni2022" name="ni2022" step="10000" /></td>
-              <td><input type="number" id="occ2022" name="occ2022" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev2022" name="rev2022" step="any" /></td>
+              <td><input type="number" id="ebitda2022" name="ebitda2022" step="any" /></td>
+              <td><input type="number" id="ni2022" name="ni2022" step="any" /></td>
+              <td><input type="number" id="occ2022" name="occ2022" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev2023">2023</label></th>
-              <td><input type="number" id="rev2023" name="rev2023" step="10000" /></td>
-              <td><input type="number" id="ebitda2023" name="ebitda2023" step="10000" /></td>
-              <td><input type="number" id="ni2023" name="ni2023" step="10000" /></td>
-              <td><input type="number" id="occ2023" name="occ2023" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev2023" name="rev2023" step="any" /></td>
+              <td><input type="number" id="ebitda2023" name="ebitda2023" step="any" /></td>
+              <td><input type="number" id="ni2023" name="ni2023" step="any" /></td>
+              <td><input type="number" id="occ2023" name="occ2023" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev2024">2024</label></th>
-              <td><input type="number" id="rev2024" name="rev2024" step="10000" /></td>
-              <td><input type="number" id="ebitda2024" name="ebitda2024" step="10000" /></td>
-              <td><input type="number" id="ni2024" name="ni2024" step="10000" /></td>
-              <td><input type="number" id="occ2024" name="occ2024" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev2024" name="rev2024" step="any" /></td>
+              <td><input type="number" id="ebitda2024" name="ebitda2024" step="any" /></td>
+              <td><input type="number" id="ni2024" name="ni2024" step="any" /></td>
+              <td><input type="number" id="occ2024" name="occ2024" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev1y">+1Y</label></th>
-              <td><input type="number" id="rev1y" name="rev1y" step="10000" /></td>
-              <td><input type="number" id="ebitda1y" name="ebitda1y" step="10000" /></td>
-              <td><input type="number" id="ni1y" name="ni1y" step="10000" /></td>
-              <td><input type="number" id="occ1y" name="occ1y" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev1y" name="rev1y" step="any" /></td>
+              <td><input type="number" id="ebitda1y" name="ebitda1y" step="any" /></td>
+              <td><input type="number" id="ni1y" name="ni1y" step="any" /></td>
+              <td><input type="number" id="occ1y" name="occ1y" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev2y">+2Y</label></th>
-              <td><input type="number" id="rev2y" name="rev2y" step="10000" /></td>
-              <td><input type="number" id="ebitda2y" name="ebitda2y" step="10000" /></td>
-              <td><input type="number" id="ni2y" name="ni2y" step="10000" /></td>
-              <td><input type="number" id="occ2y" name="occ2y" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev2y" name="rev2y" step="any" /></td>
+              <td><input type="number" id="ebitda2y" name="ebitda2y" step="any" /></td>
+              <td><input type="number" id="ni2y" name="ni2y" step="any" /></td>
+              <td><input type="number" id="occ2y" name="occ2y" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev3y">+3Y</label></th>
-              <td><input type="number" id="rev3y" name="rev3y" step="10000" /></td>
-              <td><input type="number" id="ebitda3y" name="ebitda3y" step="10000" /></td>
-              <td><input type="number" id="ni3y" name="ni3y" step="10000" /></td>
-              <td><input type="number" id="occ3y" name="occ3y" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev3y" name="rev3y" step="any" /></td>
+              <td><input type="number" id="ebitda3y" name="ebitda3y" step="any" /></td>
+              <td><input type="number" id="ni3y" name="ni3y" step="any" /></td>
+              <td><input type="number" id="occ3y" name="occ3y" step="any" /></td>
             </tr>
             <tr>
               <th scope="row"><label for="rev5y">+5Y</label></th>
-              <td><input type="number" id="rev5y" name="rev5y" step="10000" /></td>
-              <td><input type="number" id="ebitda5y" name="ebitda5y" step="10000" /></td>
-              <td><input type="number" id="ni5y" name="ni5y" step="10000" /></td>
-              <td><input type="number" id="occ5y" name="occ5y" min="0" max="100" step="0.1" /></td>
+              <td><input type="number" id="rev5y" name="rev5y" step="any" /></td>
+              <td><input type="number" id="ebitda5y" name="ebitda5y" step="any" /></td>
+              <td><input type="number" id="ni5y" name="ni5y" step="any" /></td>
+              <td><input type="number" id="occ5y" name="occ5y" step="any" /></td>
             </tr>
           </tbody>
         </table>
@@ -273,15 +271,15 @@
       <div class="grid" style="margin-top:1.5rem;">
         <div>
           <label for="projIRR">Projected IRR (%)</label>
-          <input type="number" id="projIRR" name="projIRR" min="0" max="100" step="0.1" />
+          <input type="number" id="projIRR" name="projIRR" step="any" />
         </div>
         <div>
           <label for="paybackPeriod">Payback Period (yrs)</label>
-          <input type="number" id="paybackPeriod" name="paybackPeriod" min="0" step="0.1" />
+          <input type="number" id="paybackPeriod" name="paybackPeriod" step="any" />
         </div>
         <div>
           <label for="capex">Upcoming CAPEX (RMB)</label>
-          <input type="number" id="capex" name="capex" placeholder="200000000" step="1000000" />
+          <input type="number" id="capex" name="capex" placeholder="200000000" step="any" />
         </div>
       </div>
 
@@ -298,11 +296,11 @@
           </div>
           <div>
             <label for="fundAmount">Funding Amount Requested (RMB)</label>
-            <input type="number" id="fundAmount" name="fundAmount" value="200000000" step="1000000" />
+            <input type="number" id="fundAmount" name="fundAmount" value="200000000" step="any" />
           </div>
           <div>
             <label for="equityOffered">Equity Offered (%)</label>
-            <input type="number" id="equityOffered" name="equityOffered" min="0" max="100" step="0.1" />
+            <input type="number" id="equityOffered" name="equityOffered" step="any" />
           </div>
           <div>
             <label for="useOfFunds">Use of Funds</label>
@@ -391,11 +389,11 @@
         <div class="grid">
           <div>
             <label for="exitYear">Target Exit Year</label>
-            <input type="number" id="exitYear" name="exitYear" min="2025" />
+            <input type="number" id="exitYear" name="exitYear" min="2025" step="any" />
           </div>
           <div>
             <label for="exitValuation">Expected Exit Valuation (RMB)</label>
-            <input type="number" id="exitValuation" name="exitValuation" step="1000000" />
+            <input type="number" id="exitValuation" name="exitValuation" step="any" />
           </div>
           <div>
             <label for="exitStrategy">Exit Strategy</label>
@@ -407,20 +405,10 @@
               <option>Other</option>
             </select>
           </div>
-          <!-- Equity Offered moved to Section 6 per user request -->
         </div>
       </fieldset>
 
-      <!-- 11. Supporting Documents (disabled for MVP; uncomment to re-enable Netlify file uploads)
-      <fieldset>
-        <legend>11. Supporting Documents</legend>
-        <div class="grid">
-          <div class="file-input full">
-            <label for="docs">Upload Supporting Docs (.zip/.pdf/.docx/.xlsx)</label>
-            <input type="file" id="docs" name="docs" multiple accept=".zip,.pdf,.doc,.docx,.xls,.xlsx" />
-          </div>
-        </div>
-      </fieldset> -->
+      <!-- Supporting Docs disabled for MVP -->
 
       <button type="submit" class="submit-btn">Submit Information</button>
     </form>
